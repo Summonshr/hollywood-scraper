@@ -7,6 +7,7 @@ for(var i in files) {
    if(path.extname(files[i]) === ".json") {
        JSON.parse(fs.readFileSync('data/'+files[i]).toString()).map(e=>{
             let engine = e.link.replace(/.+\/\/|www.|\..+/g, '')
+            console.log(e.link)
             require('./engines/'+engine)(e)
        });
    }

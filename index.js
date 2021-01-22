@@ -3,9 +3,9 @@ const fs = require('fs');
 (async () => {
     const browser = await puppeteer.launch({headless:false});
     const page = await browser.newPage();
-    await page.goto('https://duckduckgo.com/?q=marvel&t=h_&ia=web')
+    await page.goto('https://duckduckgo.com/?q=spiderman&t=h_&ia=web')
 
-    let data = await page.evaluate(()=>{
+    let data = await page.evaluate((ga)=>{
         let data = [];
         let elements = document.querySelectorAll('a.module--carousel__body__title.js-carousel-item-title')
         for(var i = 0; i < elements.length; i ++) {

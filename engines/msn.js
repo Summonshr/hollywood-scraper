@@ -6,7 +6,7 @@ module.exports = function(data){
    request(data.link, function (error, response, html) {
     if (!error && response.statusCode == 200) {
        var $ = cheerio.load(html)
-       fs.writeFileSync('./posts/' + slugify(data.title, {strict: true, lower:true}).replace('/',''), $('div[xmlns]').html().trim())
+       fs.writeFileSync('./posts/' + slugify(data.title, {strict: true, lower:true}).replace('/','')+'.html', $('[xmlns]').html())
     }
 });
 }
